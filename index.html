@@ -85,7 +85,7 @@
         <div class="login-form">
             <div class="title">Sign In</div>
             <div class="form">
-                <form id="loginForm" action="your-action-endpoint" method="post">
+                <form id="loginForm" method="post">
                     <div class="input-container">
                         <label for="uname">Username</label>
                         <input type="text" id="uname" name="uname" required />
@@ -97,37 +97,36 @@
                         <div id="passError" class="error-message"></div>
                     </div>
                     <div class="button-container">
-                        <input type="submit" value="Login" />
+                        <input type="button" value="Login" onclick="validateForm()" />
                     </div>
                 </form>
             </div>
         </div>
     </div>
-    
+
     <script>
-        document.getElementById('loginForm').addEventListener('submit', function(event) {
+        function validateForm() {
             var username = document.getElementById('uname').value;
             var password = document.getElementById('pass').value;
             var usernameError = document.getElementById('unameError');
             var passwordError = document.getElementById('passError');
-    
+
             // Validation: Check if username is empty
             if (username.trim() === '') {
                 usernameError.innerText = 'Please enter a username';
-                event.preventDefault(); // Prevent form submission
             } else {
                 usernameError.innerText = ''; // Clear error message
             }
-    
+
             // Validation: Check if password is empty
             if (password.trim() === '') {
                 passwordError.innerText = 'Please enter a password';
-                event.preventDefault(); // Prevent form submission
             } else {
                 passwordError.innerText = ''; // Clear error message
+                alert("Valid User");
             }
-        });
-    </script>    
+        }
+    </script>   
     
 </body>
 </html>
