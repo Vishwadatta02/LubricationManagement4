@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* LoginForm.css */
+
+/* Center the login container vertically and horizontally */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: auto; /* Adjust to control the height of the container */
+}
+
+/* Style for the login form */
+.login-form {
+    background-color: #ffff; /* White background for the form */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Shadow for the form */
+    padding: 20px;
+    text-align: center;
+    max-width: 400px;
+}
+
+/* Style for the title */
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #0f58d6; /* Blue title color */
+    margin-bottom: 20px;
+}
+
+/* Style for input containers */
+.input-container {
+    margin-bottom: 20px;
+    text-align: left; /* Align labels and inputs to the left */
+    max-width:90%;
+}
+
+    .input-container label {
+        display: block;
+        margin-bottom: 5px;
+        color: #0f58d6; /* Blue label color */
+    }
+
+    .input-container input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #0f58d6; /* Blue border */
+        border-radius: 4px;
+        font-size: 16px;
+        line-height: 1.5;
+        color: #007bff; /* Blue text color */
+    }
+
+/* Style for error messages */
+.error {
+    color: #ff0000;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* Style for the submit button */
+.button-container input[type="submit"] {
+    background-color: #0f58d6; /* Blue button background color */
+    color: #fff; /* White text color */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.button-container input[type="submit"]:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-form">
+            <div class="title">Sign In</div>
+            <div class="form">
+                <form id="loginForm" action="your-action-endpoint" method="post">
+                    <div class="input-container">
+                        <label for="uname">Username</label>
+                        <input type="text" id="uname" name="uname" required />
+                        <div id="unameError" class="error-message"></div>
+                    </div>
+                    <div class="input-container">
+                        <label for="pass">Password</label>
+                        <input type="password" id="pass" name="pass" required />
+                        <div id="passError" class="error-message"></div>
+                    </div>
+                    <div class="button-container">
+                        <input type="submit" value="Login" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            var username = document.getElementById('uname').value;
+            var password = document.getElementById('pass').value;
+            var usernameError = document.getElementById('unameError');
+            var passwordError = document.getElementById('passError');
+    
+            // Validation: Check if username is empty
+            if (username.trim() === '') {
+                usernameError.innerText = 'Please enter a username';
+                event.preventDefault(); // Prevent form submission
+            } else {
+                usernameError.innerText = ''; // Clear error message
+            }
+    
+            // Validation: Check if password is empty
+            if (password.trim() === '') {
+                passwordError.innerText = 'Please enter a password';
+                event.preventDefault(); // Prevent form submission
+            } else {
+                passwordError.innerText = ''; // Clear error message
+            }
+        });
+    </script>    
+    
+</body>
+</html>
