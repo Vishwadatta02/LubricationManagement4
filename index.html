@@ -112,7 +112,7 @@
             var passwordError = document.getElementById('passError');
 
             // Validation: Check if username is empty
-            if (username.trim() === '') {
+            if (username.trim() === '' || username=="skf" || username=="shrikanth") {
                 usernameError.innerText = 'Please enter a username';
             } else {
                 usernameError.innerText = ''; // Clear error message
@@ -122,8 +122,12 @@
             if (password.trim() === '') {
                 passwordError.innerText = 'Please enter a password';
             } else {
-                passwordError.innerText = ''; // Clear error message
+                passwordError.innerText = ''; // Clear error message               
+            }
+            if(username=="skf" || username=="shrikanth" && password=="skf"){
                 alert("Valid User");
+            }else{
+                alert("Invalid User or password");
             }
         }
     </script>   
